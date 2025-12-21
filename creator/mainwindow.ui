@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
-    <height>316</height>
+    <width>668</width>
+    <height>367</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -25,49 +25,31 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="5" column="2">
-     <widget class="QPushButton" name="outputFileButton">
-      <property name="text">
-       <string>Select</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QComboBox" name="outputFileBox">
-      <property name="editable">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
+    <item row="7" column="0">
      <widget class="QLabel" name="outputFileLabel">
       <property name="text">
        <string>Output file</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="2">
+    <item row="6" column="4">
      <widget class="QPushButton" name="inputFileButton">
       <property name="text">
        <string>Select</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
-     <widget class="QComboBox" name="inputFileBox">
+    <item row="7" column="2">
+     <widget class="QComboBox" name="outputFileBox">
       <property name="editable">
        <bool>true</bool>
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="inputFileLabel">
-      <property name="text">
-       <string>Input file</string>
-      </property>
-     </widget>
+    <item row="1" column="2">
+     <widget class="QLineEdit" name="appVersionEdit"/>
     </item>
-    <item row="3" column="1">
+    <item row="5" column="2">
      <widget class="QComboBox" name="protocolBox">
       <item>
        <property name="text">
@@ -76,25 +58,29 @@
       </item>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="6" column="0">
+     <widget class="QLabel" name="inputFileLabel">
+      <property name="text">
+       <string>Input file</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
      <widget class="QLabel" name="protocolLabel">
       <property name="text">
        <string>Protocol</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
+    <item row="4" column="2">
      <widget class="QLineEdit" name="keyEdit"/>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="keyLabel">
-      <property name="text">
-       <string>Key (16 bytes hex)</string>
+    <item row="6" column="2">
+     <widget class="QComboBox" name="inputFileBox">
+      <property name="editable">
+       <bool>true</bool>
       </property>
      </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="appVersionEdit"/>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="appVersionLabel">
@@ -103,7 +89,7 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="0" column="2">
      <widget class="QLineEdit" name="productIdEdit"/>
     </item>
     <item row="0" column="0">
@@ -113,14 +99,14 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
+    <item row="8" column="4">
      <widget class="QPushButton" name="createButton">
       <property name="text">
        <string>Create</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="2">
+    <item row="15" column="4">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -133,10 +119,73 @@
       </property>
      </spacer>
     </item>
-    <item row="2" column="2">
+    <item row="4" column="0">
+     <widget class="QLabel" name="keyLabel">
+      <property name="text">
+       <string>Key (16 bytes hex)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="2">
+     <widget class="QComboBox" name="decryptFileBox">
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="14" column="4">
+     <widget class="QPushButton" name="decryptButton">
+      <property name="text">
+       <string>Decrypt</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="4">
+     <widget class="QPushButton" name="outputFileButton">
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="4">
+     <widget class="QPushButton" name="decryptFileButton">
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Decrypted file</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Key File Path</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QComboBox" name="KeyFileBox">
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="keySelectButton">
+      <property name="text">
+       <string>Select Key</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
      <widget class="QPushButton" name="keyGenerateButton">
       <property name="text">
-       <string>Generate</string>
+       <string>Generate New Key</string>
       </property>
      </widget>
     </item>
@@ -147,8 +196,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>608</width>
-     <height>27</height>
+     <width>668</width>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

@@ -12,6 +12,8 @@ public:
 public:
     static QByteArray random(size_t len);
     static QByteArray encrypt(QByteArray arr, QByteArray key, QByteArray iv);
+    static QByteArray decrypt(QByteArray arr, QByteArray key, QByteArray iv);
+
 };
 
 #endif // CRYPTO_H

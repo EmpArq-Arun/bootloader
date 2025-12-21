@@ -18,6 +18,8 @@ public:
 private slots:
     void on_keyGenerateButton_clicked();
 
+    void on_keySelectButton_clicked();
+
     void on_inputFileButton_clicked();
 
     void on_outputFileButton_clicked();
@@ -28,8 +30,14 @@ private slots:
 
     void on_actionAboutQt_triggered();
 
+    void on_decryptFileButton_clicked();
+
+    void on_decryptButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    bool readKeyFromFile;
+    int32_t encryptedDataSize;
 };
 
 #endif // MAINWINDOW_H

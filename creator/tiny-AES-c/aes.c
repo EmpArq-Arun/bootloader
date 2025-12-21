@@ -544,7 +544,7 @@ void AES_CBC_encrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length, co
     Iv = output;
     input += BLOCKLEN;
     output += BLOCKLEN;
-    //printf("Step %d - %d", i/16, i);
+    printf("Step %d - %d", i/16, i);
   }
 
   if (extra)

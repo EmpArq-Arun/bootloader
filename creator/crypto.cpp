@@ -54,12 +54,12 @@ QByteArray Crypto::encrypt(QByteArray arr, QByteArray key, QByteArray iv) {
 }
 
 QByteArray Crypto::decrypt(QByteArray arr, QByteArray key, QByteArray iv) {
-    //assert(arr.size() % 16 == 0);
+    assert(arr.size() % 16 == 0);
     assert(key.size() == 16);
     assert(iv.size() == 16);
 
     QByteArray res;
-    res.resize(arr.size());
+    res.resize(arr.size(), 0);
     AES_CBC_decrypt_buffer((uint8_t*)res.data(), (uint8_t*)arr.data(), arr.size(), (uint8_t*)key.data(), (uint8_t*)iv.data());
     return res;
 }

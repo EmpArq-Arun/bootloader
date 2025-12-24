@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QMAKE_CXXFLAGS += -std=c++14
+QMAKE_CXXFLAGS += -std=c++17
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

@@ -44,7 +44,7 @@ void MainWindow::on_keyGenerateButton_clicked()
         //open file as write-only
         if(!keyFile.open(QFile::WriteOnly | QFile::Truncate)) {
             QMessageBox::warning(this, tr("Bootloader Creator"),
-                tr("Cannot write to file %1:\n%2.").arg(keyFileName).arg(keyFile.errorString()));
+                tr("Cannot write to file %1:\n%2.").arg(keyFileName, keyFile.errorString()));
             return;
         }
 
@@ -74,7 +74,7 @@ void MainWindow::on_keySelectButton_clicked()
     if(dialog.exec() != QFileDialog::Accepted)
         return;
 
-    QString fileName =  dialog.selectedFiles().first();
+    QString fileName =  dialog.selectedFiles().constFirst();
     QFileInfo fileInfo(fileName);
 
     readKeyFromFile = fileInfo.exists() && fileInfo.size() > 0;
@@ -86,7 +86,7 @@ void MainWindow::on_keySelectButton_clicked()
         //Open file as readonly
         if(!keyFile.open(QFile::ReadOnly)) {
             QMessageBox::warning(this, tr("Bootloader Creator"),
-                tr("Cannot read from file %1:\n%2.").arg(fileName).arg(keyFile.errorString()));
+                tr("Cannot read from file %1:\n%2.").arg(fileName, keyFile.errorString()));
             return;
         }
 //        QDataStream stream(&keyFile);
@@ -218,14 +218,14 @@ void MainWindow::on_createButton_clicked()
     QFile inputFile(inputName);
     if(!inputFile.open(QFile::ReadOnly)) {
         QMessageBox::warning(this, tr("Bootloader Creator"),
-            tr("Cannot read from file %1:\n%2.").arg(inputName).arg(inputFile.errorString()));
+            tr("Cannot read from file %1:\n%2.").arg(inputName, inputFile.errorString()));
         return;
     }
 
     QFile outputFile(outputName);
     if(!outputFile.open(QFile::WriteOnly | QFile::Truncate)) {
         QMessageBox::warning(this, tr("Bootloader Creator"),
-            tr("Cannot write to file %1:\n%2.").arg(outputName).arg(outputFile.errorString()));
+            tr("Cannot write to file %1:\n%2.").arg(outputName, outputFile.errorString()));
         return;
     }
 
@@ -290,12 +290,12 @@ static bool recover(uint32_t& productId, uint32_t& appVersion, uint32_t& protoco
     byteCount = byteCount * PAGE_SIZE;
 
     // Allocate buffer for encrypted data based on the received size
-    QByteArray encData(byteCount, Qt::Uninitialized);
+    QByteArray encData(byteCount, 0);
 
     streamIn.readRawData(encData.data(), encData.size());
 
     //Decrypt the encrypted data
-    QByteArray dencryptData = Crypto::decrypt(encData.data(), key, iv);
+    QByteArray dencryptData = Crypto::decrypt(encData, key, iv);
 
     //Write to the output file
     streamOut.writeRawData(dencryptData.data(), dencryptData.size());
@@ -342,14 +342,14 @@ void MainWindow::on_decryptButton_clicked()
     QFile inputFile(inputName);
     if(!inputFile.open(QFile::ReadOnly)) {
         QMessageBox::warning(this, tr("Bootloader Creator"),
-            tr("Cannot read from file %1:\n%2.").arg(inputName).arg(inputFile.errorString()));
+            tr("Cannot read from file %1:\n%2.").arg(inputName, inputFile.errorString()));
         return;
     }
 
     QFile outputFile(outputName);
     if(!outputFile.open(QFile::WriteOnly | QFile::Truncate)) {
         QMessageBox::warning(this, tr("Bootloader Creator"),
-            tr("Cannot write to file %1:\n%2.").arg(outputName).arg(outputFile.errorString()));
+            tr("Cannot write to file %1:\n%2.").arg(outputName, outputFile.errorString()));
         return;
     }
 
